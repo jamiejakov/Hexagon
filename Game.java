@@ -17,7 +17,7 @@ import com.jogamp.opengl.util.FPSAnimator;
 import com.jogamp.opengl.util.gl2.GLUT;
 
 public class Game extends Applet implements GLEventListener, Runnable {
-    private static final double version = 1.1;
+    private static final double version = 1.2;
     private int menu = 0; //different screens: 0-Welcome, 1-LevelSelect, 2-PlayTheGame, 3-GameOver, 4-Win
     private Level level = null;
     private Input input;
@@ -59,9 +59,7 @@ public class Game extends Applet implements GLEventListener, Runnable {
     }
     
     private void showWelcomeScreen(GL2 gl, GLUT glut){  // Menu = 0
-        if (input.escRel()){
-            System.exit(0);
-        }else if (input.spaceRel()){
+        if (input.spaceRel()){
             input.setSpaceRel();
             menu++;
             escBox = new TextBox(menu);
@@ -74,10 +72,10 @@ public class Game extends Applet implements GLEventListener, Runnable {
             String text = "Welcome to HEXAGON v" + version;
             glut.glutBitmapString(GLUT.BITMAP_9_BY_15, text);
             gl.glRasterPos3f(-0.5f, 0.1f, 0.0f);
-            text = "Clear the level by surviving 60 SECONDS!";
+            text = "Clear the level by surviving 60 seconds!";
             glut.glutBitmapString(GLUT.BITMAP_9_BY_15, text);
             gl.glRasterPos3f(-0.6f, 0.0f, 0f);
-            text = "Use Left and Right keys to move, avoid the walls";
+            text = "Use LEFT and RIGHT keys to move, avoid the walls";
             glut.glutBitmapString(GLUT.BITMAP_9_BY_15, text);
         }
     }
